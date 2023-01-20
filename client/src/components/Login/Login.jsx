@@ -18,13 +18,14 @@ const Login = () => {
       password: password,
     })
       .then((response) => {
-        console.log("hi");
+        console.log(response);
         if (response.status === 200) {
           navigate("/resume");
         }
       })
       .catch((err) => {
         console.log(err);
+        alert(err.response.data.message);
       });
   };
 
@@ -43,6 +44,7 @@ const Login = () => {
             placeholder="e-mail"
             name="email"
             value={email}
+            required
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -54,6 +56,7 @@ const Login = () => {
             type="password"
             placeholder="Password"
             value={password}
+            required
             onChange={(e) => {
               setPassword(e.target.value);
             }}
