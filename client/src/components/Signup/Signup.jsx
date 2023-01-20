@@ -1,9 +1,10 @@
 import { React, useState } from "react";
 import "./Signup.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,9 +22,14 @@ const Signup = () => {
     })
       .then((response) => {
         console.log(response);
+        if (response.status === 201) {
+          navigate("/login");
+        }
       })
       .catch((err) => {
         console.log(err);
+        console.log(err.response.data.message);
+        alert(err.response.data.message);
       });
   };
 
