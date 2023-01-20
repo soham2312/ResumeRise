@@ -1,1 +1,33 @@
+.App {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
+.blue {
+  color: #6c63ff;
+}
+
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  padding: 14px 24px;
+  background: #6c63ff;
+  border: none;
+  width: 300px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background: #584feb;
+}
+
+h3 {
+  font-size: 30px;
+  text-align: center;
+}
