@@ -1,12 +1,31 @@
 import { React, useState } from "react";
 import "./Signup.scss";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [reenterPassword, setReenterPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const signup = (e) => {
+    e.preventDefault();
+    console.log(name);
+    console.log(password);
+    Axios.post("http://localhost:4000/api/v1/users/signup", {
+      name: name,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="signup">
@@ -51,22 +70,18 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label>re-Enter Password</label>
+          <label>Confirm Password</label>
           <input
             type="password"
-            placeholder="re-Enter Password"
-            value={reenterPassword}
+            placeholder="confirm Password"
+            value={confirmPassword}
             onChange={(e) => {
-              setReenterPassword(e.target.value);
+              setConfirmPassword(e.target.value);
             }}
           />
         </div>
-        <button
-          type="submit"
-          className="btn-primary"
-          onClick={console.log("signup")}
-        >
-          Login
+        <button type="submit" className="btn-primary" onClick={signup}>
+          Sign Up
         </button>
         <div className="msg">
           <p>Don't have an Account?</p>

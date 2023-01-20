@@ -1,10 +1,32 @@
 import { React, useState } from "react";
 import "./Login.scss";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const login = (e) => {
+    e.preventDefault();
+    console.log(email);
+    console.log(password);
+    Axios.post("http://localhost:4000/api/v1/users/login", {
+      email: email,
+      password: password,
+    })
+      .then((response) => {
+        console.log("hi");
+        if (response.status === 200) {
+          navigate("/resume");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="login">
@@ -37,11 +59,7 @@ const Login = () => {
             }}
           />
         </div>
-        <button
-          type="submit"
-          className="btn-primary"
-          onClick={console.log("login")}
-        >
+        <button type="submit" className="btn-primary" onClick={login}>
           Login
         </button>
         <div className="msg">
