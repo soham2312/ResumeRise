@@ -16,9 +16,16 @@ const Login = () => {
     Axios.post("http://localhost:4000/api/v1/users/login", {
       email: email,
       password: password,
-    }).catch((err) => {
-      console.log(err);
-    });
+    })
+      .then((response) => {
+        console.log("hi");
+        if (response.status === 200) {
+          navigate("/resume");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

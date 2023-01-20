@@ -18,9 +18,13 @@ const Signup = () => {
       email: email,
       password: password,
       confirmPassword: confirmPassword,
-    }).catch((err) => {
-      console.log(err);
-    });
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
