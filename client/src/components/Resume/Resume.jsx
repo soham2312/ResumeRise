@@ -3,9 +3,22 @@ import "./Resume.scss";
 import { Link, Outlet } from "react-router-dom";
 
 const Resume = () => {
-  const submit = () => {
-    console.log("submit button clicked");
+  const submit = async() => {
+    const formData = {}
+    const pdfResponse = await fetch('http://localhost:8181/api/generate-pdf', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+  
+    const pdfBlob = await pdfResponse.blob()
+    const pdfUrl = URL.createObjectURL(pdfBlob)
+    console.log(pdfUrl, "shiv");
+    return pdfUrl
   };
+
   return (
     <div className="resume">
       <h3>
