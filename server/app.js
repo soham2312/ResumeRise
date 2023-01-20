@@ -7,14 +7,11 @@ const globalErrorController = require("./controllers/errorController");
 const AppError = require("./utils/appError");
 const app = express();
 
-
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: true, limit: '10kb' }));
-
+app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
 app.use("/api/v1/users", userRouter);
-
 
 app.use(globalErrorController);
 
