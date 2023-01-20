@@ -1,4 +1,30 @@
-.resume-content-box-heading {
-  display: flex;
-  gap: 15px;
+.resume {
+  .resume-contents {
+    display: flex;
+    gap: 50px;
+    padding: 20px 60px;
+
+    .resume-content-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 10px;
+      width: 600px;
+      gap: 25px;
+      background: #ffffff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+
+      .resume-content-box-heading {
+        display: flex;
+        gap: 22px;
+
+        Link {
+          padding: 12px 8px;
+          background-color: blueviolet;
+        }
+      }
+    }
+  }
 }

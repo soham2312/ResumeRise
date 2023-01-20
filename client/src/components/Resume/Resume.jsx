@@ -1,6 +1,7 @@
 import { React } from "react";
 import "./Resume.scss";
 import { Link, Outlet } from "react-router-dom";
+import { useState } from "react";
 
 const Resume = () => {
   const submit = async() => {
@@ -27,12 +28,12 @@ const Resume = () => {
       <div className="resume-contents">
         <div className="resume-content-box">
           <div className="resume-content-box-heading">
-            <Link to="/resume/basics">Basics</Link>
+            <Link to="/resume/basic">Basics</Link>
             <Link to="/resume/experience">Experience</Link>
             <Link to="/resume/location">Location</Link>
             <Link to="/resume/Skills">Skills</Link>
             <Link to="/resume/education">Education</Link>
-            <Link to="/resume/projects">Projects</Link>
+            <Link to="/resume/project">Projects</Link>
             <Link to="/resume/Awards">Awards</Link>
           </div>
           <Outlet />
