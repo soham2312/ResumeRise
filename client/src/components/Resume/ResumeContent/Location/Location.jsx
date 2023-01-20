@@ -3,63 +3,63 @@ import "./Location.scss";
 import { Link } from "react-router-dom";
 
 const Location = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
-  const [website, setWebsite] = useState("");
+  const [address, setAddress] = useState("");
+  const [postal, setPostal] = useState("");
+  const [city, setCity] = useState("");
+  const [region, setRegion] = useState("");
 
   return (
-    <div>
+    <div className="basic">
       <form>
         <div>
-          <label>Name</label>
-          <input
-            type="name"
-            placeholder="name"
-            name="name"
-            value={name}
-            required
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder="email"
-            name="email"
-            value={email}
-            required
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label>Phone</label>
-          <input
-            type="number"
-            placeholder="Phone Number"
-            name="number"
-            value={number}
-            required
-            onChange={(e) => {
-              setNumber(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label>Website</label>
+          <label>Address</label>
           <input
             type="text"
-            placeholder="user.com"
-            name="website"
-            value={website}
+            placeholder="Address"
+            name="address"
+            value={address}
             required
             onChange={(e) => {
-              setWebsite(e.target.value);
+              setAddress(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label>Postal Code</label>
+          <input
+            type="text"
+            placeholder="postal"
+            name="postal"
+            value={postal}
+            required
+            onChange={(e) => {
+              setPostal(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label>City</label>
+          <input
+            type="text"
+            placeholder="City"
+            name="city"
+            value={city}
+            required
+            onChange={(e) => {
+              setCity(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label>Region</label>
+          <input
+            type="text"
+            placeholder="Region"
+            name="Region"
+            value={region}
+            required
+            onChange={(e) => {
+              setRegion(e.target.value);
             }}
           />
         </div>
