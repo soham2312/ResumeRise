@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Awards.scss";
 import { useState } from "react";
+import useStore from "../../../../zustand/resumeStore.js";
 // import Latex from "react-latex";
 // import Katex from "react-katex";
 
 const Awards = () => {
   const [firstAward, setFirstAward] = useState("");
   const [secondAward, setSecondAward] = useState("");
+  const changeAward = useStore((state)=>state.changeAward);
+  const setFirst = function (val) {
+    setFirstAward(val);
+    changeAward();
+  }
 
   return (
     <div className="awards">
@@ -20,7 +26,8 @@ const Awards = () => {
             value={firstAward}
             required
             onChange={(e) => {
-              setFirstAward(e.target.value);
+              // setFirstAward(e.target.value);
+              setFirst(e.target.value);
             }}
           />
         </div>
